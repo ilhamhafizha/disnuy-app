@@ -2,7 +2,11 @@ import type { PropsWithChildren } from "react";
 import styles from "./index.module.css";
 import clsx from "clsx";
 
-const MenuItem = (props: PropsWithChildren<unknown>) => {
+interface MenuItemProps {
+  icon: string;
+}
+
+const MenuItem = (props: PropsWithChildren<MenuItemProps>) => {
   const { children, icon } = props;
   return (
     <li className={styles.menuItem}>

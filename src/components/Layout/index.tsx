@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 import styles from "./index.module.css";
 import Sidebar from "./Sidebar";
+import Page from "./Page";
 
 const Layout = (props: PropsWithChildren<unknown>) => {
   const { children } = props;
@@ -8,7 +9,7 @@ const Layout = (props: PropsWithChildren<unknown>) => {
   return (
     <div className={styles.container}>
       <Sidebar />
-      {children}
+      <Page>{children}</Page>
     </div>
   );
 };
