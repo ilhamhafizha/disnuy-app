@@ -1,0 +1,49 @@
+.container {
+  height: 50vw;
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.title {
+  color: #fff;
+  font-size: 48px;
+}
+
+.section {
+  margin-top: 16px;
+  display: flex;
+}
+
+.section1 span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.section1 i {
+  color: #fff;
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.section2 p {
+  color: #fff;
+  margin: 0;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.section3 span {
+  margin: 0 8px;
+  color: #fff;
+}
+
+.section3 b {
+  color: #fff;
+  font-size: 14px;
+}
