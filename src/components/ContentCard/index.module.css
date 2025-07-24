@@ -1,0 +1,89 @@
+.container {
+  width: 100%;
+  padding: 10px;
+  position: relative;
+}
+
+.content {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.detail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  background-color: #16181f;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover .detail {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.detailWrapper {
+  padding: 6px 16px;
+  height: 60%;
+}
+
+.detailWrapper h3 {
+  font-size: 18px;
+  margin: 0 0 6px 0;
+  color: white;
+}
+
+.detailWrapper p {
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.container:hover .detail {
+  opacity: 1;
+  width: 105%;
+  height: 108%;
+}
+
+.bannerWrapper {
+  height: 60%;
+  overflow: hidden;
+}
+
+.bannerWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailWrapper {
+  height: 40%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -2,8 +2,8 @@
   width: 100%;
   position: absolute;
   height: 100vh;
-  z-index: -1;
   top: 0;
+  z-index: -1;
   left: 0;
 }
 
@@ -30,7 +30,7 @@
   width: 100%;
   box-sizing: border-box;
   padding-left: 112px;
-  padding-bottom: 80p x;
+  padding-bottom: 80px;
   position: absolute;
   background-color: rgb(15, 16, 20);
 }

@@ -10,7 +10,7 @@
 }
 
 .title {
-  color: #fff;
+  color: white;
   font-size: 48px;
 }
 
@@ -20,30 +20,29 @@
 }
 
 .section1 span {
-  color: #fff;
-  font-size: 14px;
+  color: white;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .section1 i {
-  color: #fff;
-  font-size: 14px;
   margin: 0 8px;
+  color: white;
+  font-size: 14px;
 }
 
 .section2 p {
-  color: #fff;
-  margin: 0;
-  line-height: 20px;
   font-size: 14px;
+  margin: 0;
+  color: white;
+  line-height: 20px;
 }
 
 .section3 span {
   margin: 0 8px;
-  color: #fff;
+  color: white;
 }
-
 .section3 b {
-  color: #fff;
+  color: white;
   font-size: 14px;
 }
