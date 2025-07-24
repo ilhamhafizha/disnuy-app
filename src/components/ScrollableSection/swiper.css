@@ -1,0 +1,22 @@
+.swiper-button-prev {
+  height: 100%;
+  color: white;
+  width: 58px;
+  background-color: black;
+  top: 22px;
+  left: 0;
+}
+
+.swiper-button-next {
+  height: 100%;
+  color: white;
+  width: 58px;
+  background-color: black;
+  top: 22px;
+  right: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(0, 0, 0, 0.4);
+}
