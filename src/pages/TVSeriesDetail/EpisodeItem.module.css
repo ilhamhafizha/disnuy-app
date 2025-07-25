@@ -1,0 +1,38 @@
+.container {
+  height: 150px;
+  margin: 12px 0;
+  display: flex;
+  padding: 8px 0;
+}
+
+.imageWrapper {
+  width: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: gray;
+}
+
+.detailWrapper {
+  margin-left: 32px;
+}
+
+.detailWrapper > h3 {
+  margin: 6px 0 0;
+  color: white;
+  font-size: 18px;
+}
+
+.episodeSummary {
+  color: white;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.episodeSuammary > b {
+  margin: 0 4px;
+}
+
+.desc {
+  font-size: 14px;
+  color: white;
+}

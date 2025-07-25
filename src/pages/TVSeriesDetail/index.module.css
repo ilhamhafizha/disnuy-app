@@ -1,0 +1,19 @@
+.seasonTitle {
+  color: #fff;
+}
+
+.tabsSection {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.tabsSection > span {
+  color: #9a9a9ad6;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+.tabsSection > span:hover,
+span[data-active="true"] {
+  color: white;
+}
