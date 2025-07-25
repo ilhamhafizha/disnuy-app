@@ -1,17 +1,22 @@
-import type { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 import styles from "./index.module.css";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 interface MenuItemProps {
   icon: string;
+  url: string;
 }
 
 const MenuItem = (props: PropsWithChildren<MenuItemProps>) => {
-  const { children, icon } = props;
+  const { children, icon, url } = props;
+
   return (
     <li className={styles.menuItem}>
-      <span className={clsx(["material-symbols-outlined", styles.menuIcon])}>{icon}</span>
-      <span className={styles.menuName}> {children}</span>
+      <Link to={url} className={styles.link}>
+        <span className={clsx(["material-symbols-outlined", styles.menuIcon])}>{icon}</span>
+        <span className={styles.menuName}> {children}</span>
+      </Link>
     </li>
   );
 };
@@ -26,10 +31,18 @@ const Sidebar = () => {
         width="51px"
       />
       <ul className={styles.menuWrapper}>
-        <MenuItem icon="search">Search</MenuItem>
-        <MenuItem icon="home">Home</MenuItem>
-        <MenuItem icon="movie">Movies</MenuItem>
-        <MenuItem icon="tv_gen">Series</MenuItem>
+        <MenuItem url="/search" icon="search">
+          Search
+        </MenuItem>
+        <MenuItem url="/" icon="home">
+          Home
+        </MenuItem>
+        <MenuItem url="/movies" icon="movie">
+          Movies
+        </MenuItem>
+        <MenuItem url="/tvseries" icon="tv_gen">
+          Series
+        </MenuItem>
       </ul>
       <div className={styles.overlay}></div>
     </nav>

@@ -1,9 +1,9 @@
-import BannerDetail from "../../BannerDetail";
-import BannerMask from "../../BannerMask";
-import ContentCard from "../../ContentCard";
-import ImageBanner from "../../ImageBanner";
-import ScrollableSection from "../../ScrollableSection";
-import SectionItems from "../../ScrollableSection/SectionItems";
+import BannerDetail from "../../components/BannerDetail";
+import BannerMask from "../../components/BannerMask";
+import ContentCard from "../../components/ContentCard";
+import ImageBanner from "../../components/ImageBanner";
+import ScrollableSection from "../../components/ScrollableSection";
+import SectionItems from "../../components/ScrollableSection/SectionItems";
 
 const Home = () => {
   return (

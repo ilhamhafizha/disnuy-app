@@ -9,6 +9,10 @@
   flex-direction: column;
 }
 
+.link {
+  color: unset;
+}
+
 .logo {
   position: absolute;
   top: 20px;
