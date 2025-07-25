@@ -1,0 +1,40 @@
+.searchBar {
+  height: 64px;
+  width: 100%;
+  background-color: #252833;
+  display: flex;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  margin: 32px 0;
+}
+
+.searchBar > span {
+  width: 64px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #8f98b2;
+}
+
+.searchBar > input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+  padding-left: 16px;
+  border: none;
+  outline: none;
+}
+
+.searchBar > input::placeholder {
+  color: #8f98b2;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(91px, 1fr));
+  grid-gap: 16px;
+}
