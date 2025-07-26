@@ -2,29 +2,29 @@ import clsx from "clsx";
 import styles from "./index.module.css";
 
 interface GenreItem {
-  id: string;
+  id: number;
   name: string;
 }
 
 interface Props {
   title: string;
   overview: string;
-  realeseDate: string;
+  releaseDate: string;
   genres: GenreItem[];
-  lenguage: string;
+  language: string;
 }
 
 const BannerDetail = (props: Props) => {
-  const { title, overview, realeseDate, genres = [], lenguage } = props;
+  const { title, overview, releaseDate, genres = [], language } = props;
 
   return (
     <div className={styles.container}>
       <div className={styles.details}>
         <h1 className={styles.title}>{title}</h1>
         <div className={clsx(styles.section, styles.section1)}>
-          <span>{realeseDate}</span>
+          <span>{releaseDate}</span>
           <i>&#x2022;</i>
-          <span>{lenguage}</span>
+          <span>{language}</span>
         </div>
 
         <div className={clsx(styles.section, styles.section2)}>

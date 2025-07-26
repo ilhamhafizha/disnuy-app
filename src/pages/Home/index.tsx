@@ -14,7 +14,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const { loading, data } = useFetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`
   );
 
   const { genres } = useGenres();
@@ -39,11 +39,11 @@ const Home = () => {
         <ScrollableSection title="Popular on Disney+">
           {!loading &&
             data &&
-            data.results.map((content) => (
-              <SectionItems>
+            data.results.map((content: any) => (
+              <SectionItems key={content.id}>
                 <ContentCard
                   onClick={() => navigate("/movie/bla")}
-                  title={content.title}
+                  title={content.title || firstContent.name}
                   description={content.overview}
                   posterImage={`https://image.tmdb.org/t/p/w500/${content.poster_path}`}
                   bannerImage={`https://image.tmdb.org/t/p/w500/${content.backdrop_path}`}
