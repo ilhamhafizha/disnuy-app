@@ -6,8 +6,9 @@ import ImageBanner from "../../components/ImageBanner";
 import ScrollableSection from "../../components/ScrollableSection";
 import SectionItems from "../../components/ScrollableSection/SectionItems";
 import useFetch from "../../hooks/useFetch";
-
-const API_KEY = "daa4facba2ec52182b9118a5db98644a";
+import { API_KEY } from "../../components/constain";
+import useGenres from "../../hooks/useGenres";
+import useMapGenreIdtoName from "../../hooks/useMapGenreIdToName";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -16,15 +17,24 @@ const Home = () => {
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
   );
 
-  console.log({
-    loading,
-    data,
-  });
+  const { genres } = useGenres();
+
+  const firstContent = data?.results?.[0] || {};
+  const genreNames = useMapGenreIdtoName(firstContent.genre_ids, genres);
 
   return (
     <div>
-      <ImageBanner />
-      <BannerDetail />
+      <ImageBanner
+        alt={firstContent.title || firstContent.name}
+        src={`https://image.tmdb.org/t/p/original/${firstContent.backdrop_path}`}
+      />
+      <BannerDetail
+        title={firstContent.title || firstContent.name}
+        overview={firstContent.overview}
+        releaseDate={firstContent.release_date || firstContent.first_air_date}
+        genres={genreNames}
+        language={firstContent.original_language}
+      />
       <BannerMask>
         <ScrollableSection title="Popular on Disney+">
           {!loading &&

@@ -1,25 +1,41 @@
 import clsx from "clsx";
 import styles from "./index.module.css";
-const BannerDetail = () => {
+
+interface GenreItem {
+  id: string;
+  name: string;
+}
+
+interface Props {
+  title: string;
+  overview: string;
+  realeseDate: string;
+  genres: GenreItem[];
+  lenguage: string;
+}
+
+const BannerDetail = (props: Props) => {
+  const { title, overview, realeseDate, genres = [], lenguage } = props;
+
   return (
     <div className={styles.container}>
       <div className={styles.details}>
-        <h1 className={styles.title}>Title</h1>
+        <h1 className={styles.title}>{title}</h1>
         <div className={clsx(styles.section, styles.section1)}>
-          <span>2024</span>
+          <span>{realeseDate}</span>
           <i>&#x2022;</i>
-          <span>English</span>
+          <span>{lenguage}</span>
         </div>
 
         <div className={clsx(styles.section, styles.section2)}>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe aspernatur nulla</p>
+          <p>{overview}</p>
         </div>
 
         <div className={clsx(styles.section, styles.section3)}>
-          {["Horror", "Action"].map((genre, index) => (
+          {genres.map(({ id, name }, index) => (
             <>
               {index > 0 && <span>&#124;</span>}
-              <b key={genre}>{genre}</b>
+              <b key={id}>{name}</b>
             </>
           ))}
         </div>
