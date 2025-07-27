@@ -40,7 +40,7 @@ const TVSeries = () => {
             data.results.map((content: any) => (
               <SectionItems key={content.id}>
                 <ContentCard
-                  onClick={() => navigate("/movie/bla")}
+                  onClick={() => navigate(`/movie/${content.id}`)}
                   title={content.name}
                   description={content.overview}
                   posterImage={`https://image.tmdb.org/t/p/w500/${content.poster_path}`}

@@ -3,15 +3,22 @@ import ContentCard from "../../components/ContentCard";
 import styles from "./index.module.css";
 import useFetch from "../../hooks/useFetch";
 import { API_KEY } from "../../components/constain";
+import useDebounce from "../../hooks/useDebounce";
 
 const Search = () => {
   const [search, setSearch] = useState("");
 
+  const debouncedSearch = useDebounce(search);
+
   const { data: movieData, loading: movieLoading } = useFetch(
-    search ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}` : ""
+    search
+      ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${debouncedSearch}`
+      : ""
   );
   const { data: tvData, loading: tvLoading } = useFetch(
-    search ? `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${search}` : ""
+    search
+      ? `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${debouncedSearch}`
+      : ""
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
