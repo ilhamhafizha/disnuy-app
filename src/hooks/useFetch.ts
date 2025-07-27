@@ -10,15 +10,26 @@ const useFetch = (url: string): Response => {
   const [data, setData] = useState(null);
 
   const fetcher = async (url: string) => {
+    if (!url) return;
+    
     setLoading(true);
-    const res = await fetch(url);
-    const data = await res.json();
-    setData(data);
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      setData(data);
+    } catch (error) {
+      console.error('Fetch error:', error);
+      setData(null);
+    }
     setLoading(false);
   };
 
   useEffect(() => {
-    fetcher(url);
+    if (url) {
+      fetcher(url);
+    } else {
+      setData(null);
+    }
   }, [url]);
 
   return {

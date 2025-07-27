@@ -1,29 +1,105 @@
+import { useState } from "react";
 import ContentCard from "../../components/ContentCard";
 import styles from "./index.module.css";
+import useFetch from "../../hooks/useFetch";
+import { API_KEY } from "../../components/constain";
 
 const Search = () => {
+  const [search, setSearch] = useState("");
+
+  const { data: movieData, loading: movieLoading } = useFetch(
+    search ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}` : ""
+  );
+  const { data: tvData, loading: tvLoading } = useFetch(
+    search ? `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${search}` : ""
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div>
       <div className={styles.searchBar}>
         <span style={{ color: "white" }} className="material-symbols-outlined">
           Search
         </span>
-        <input type="text" placeholder="Movies, shows and more" />
+        <input
+          value={search}
+          onChange={handleChange}
+          type="text"
+          placeholder="Movies, shows and more"
+        />
       </div>
 
-      <div className={styles.contentGrid}>
-        {Array(12)
-          .fill(0)
-          .map((_) => (
-            <ContentCard
-              title="Mickey Mouse"
-              description="Mickey Mouse is an animated cartoon character co-created in 1928 by Walt Disney and Ub Iwerks."
-              posterImage="https://image.tmdb.org/t/p/w342/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
-              bannerImage="https://image.tmdb.org/t/p/w342/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
-              onClick={() => console.log("Content Card Clicked")}
-            />
-          ))}
-      </div>
+      {movieLoading || tvLoading ? (
+        <div>
+          <h1
+            style={{
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            Loading...
+          </h1>
+        </div>
+      ) : search ? (
+        <>
+          <h1
+            style={{
+              color: "white",
+            }}
+          >
+            Movies
+          </h1>
+          <div className={styles.contentGrid}>
+            {movieData?.results &&
+              movieData.results.length > 0 &&
+              movieData.results.map((movieItem) => (
+                <ContentCard
+                  key={movieItem.id}
+                  title={movieItem?.title}
+                  description={movieItem.overview}
+                  posterImage={`https://image.tmdb.org/t/p/w342/${movieItem.poster_path}`}
+                  bannerImage={`https://image.tmdb.org/t/p/w342/${movieItem.backdrop_path}`}
+                  onClick={() => console.log("Content Card Clicked")}
+                />
+              ))}
+          </div>
+          <h1
+            style={{
+              color: "white",
+            }}
+          >
+            TV Series
+          </h1>
+          <div className={styles.contentGrid}>
+            {tvData?.results &&
+              tvData.results.length > 0 &&
+              tvData.results.map((tvItem) => (
+                <ContentCard
+                  key={tvItem.id}
+                  title={tvItem.name}
+                  description={tvItem.overview}
+                  posterImage={`https://image.tmdb.org/t/p/w342/${tvItem.poster_path}`}
+                  bannerImage={`https://image.tmdb.org/t/p/w342/${tvItem.backdrop_path}`}
+                  onClick={() => console.log("Content Card Clicked")}
+                />
+              ))}
+          </div>
+        </>
+      ) : (
+        <div>
+          <h1
+            style={{
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            Ketik untuk mencari film atau TV series
+          </h1>
+        </div>
+      )}
     </div>
   );
 };
