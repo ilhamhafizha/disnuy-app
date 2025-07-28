@@ -8,9 +8,6 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 ## 🚀 Demo
 
 🌐 Live: [https://disney-plus-clone-24a40.web.app](https://disney-plus-clone-24a40.web.app)
-
-📦 Repository: [https://github.com/ilhamhafizha/disnuy-app](https://github.com/ilhamhafizha/disnuy-app)
-
 ---
 
 ## 🛠️ Tech Stack
