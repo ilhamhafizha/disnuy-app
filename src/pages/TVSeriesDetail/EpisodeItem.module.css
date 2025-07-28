@@ -7,29 +7,30 @@
 
 .imageWrapper {
   width: 200px;
+  flex-shrink: 0;
   overflow: hidden;
   border-radius: 8px;
   background-color: gray;
 }
 
-.detailWrapper {
+.detailsWrapper {
   margin-left: 32px;
 }
 
-.detailWrapper > h3 {
+.detailsWrapper > h3 {
   margin: 6px 0 0;
   color: white;
   font-size: 18px;
 }
 
 .episodeSummary {
-  color: white;
   font-size: 14px;
+  color: white;
   line-height: 25px;
 }
 
-.episodeSuammary > b {
-  margin: 0 4px;
+.episodeSummary > b {
+  margin: 0 6px;
 }
 
 .desc {

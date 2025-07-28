@@ -2,35 +2,52 @@ import { type PropsWithChildren } from "react";
 import styles from "./index.module.css";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import type { User } from "firebase/auth";
 
 interface MenuItemProps {
   icon: string;
-  url: string;
+  url?: string;
+  onClick?: () => void;
+}
+
+interface SidebarProps {
+  onLogout: () => void;
+  user: User | null;
 }
 
 const MenuItem = (props: PropsWithChildren<MenuItemProps>) => {
-  const { children, icon, url } = props;
+  const { children, icon, url, onClick } = props;
 
   return (
     <li className={styles.menuItem}>
-      <Link to={url} className={styles.link}>
-        <span className={clsx(["material-symbols-outlined", styles.menuIcon])}>{icon}</span>
-        <span className={styles.menuName}> {children}</span>
-      </Link>
+      {url ? (
+        <Link to={url} className={styles.link}>
+          <span className={clsx(["material-symbols-outlined", styles.menuIcon])}>{icon}</span>
+          <span className={styles.menuName}>{children}</span>
+        </Link>
+      ) : (
+        <>
+          <span onClick={onClick} className={clsx(["material-symbols-outlined", styles.menuIcon])}>
+            {icon}
+          </span>
+          <span className={styles.menuName}>{children}</span>
+        </>
+      )}
     </li>
   );
 };
 
-const Sidebar = () => {
+const Sidebar = (props: SidebarProps) => {
+  const { onLogout, user } = props;
   return (
     <nav className={styles.container}>
-      <img
-        className={styles.logo}
-        src="https://img.hotstar.com/image/upload/v1710482713/feature/rebranding/disney-plus-hotstar-logo.svg"
-        alt="disney-plus-hotstar-logo"
-        width="51px"
-      />
+      <img width="51px" className={styles.logo} />
       <ul className={styles.menuWrapper}>
+        {!user && (
+          <MenuItem url="/login" icon="account_circle">
+            Login
+          </MenuItem>
+        )}
         <MenuItem url="/search" icon="search">
           Search
         </MenuItem>
@@ -43,8 +60,13 @@ const Sidebar = () => {
         <MenuItem url="/tvseries" icon="tv_gen">
           Series
         </MenuItem>
+        {user && (
+          <MenuItem onClick={onLogout} icon="logout">
+            Logout
+          </MenuItem>
+        )}
       </ul>
-      <div className={styles.overlay}></div>
+      <div className={styles.overlay} />
     </nav>
   );
 };

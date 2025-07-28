@@ -1,11 +1,15 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "./components/Layout";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import TVSeriesDetail from "./pages/TVSeriesDetail";
 import MovieDetail from "./pages/MovieDetail";
+import TVSeriesDetail from "./pages/TVSeriesDetail";
 import Movies from "./pages/Movies";
-import TvSeries from "./pages/TVSeries";
+import TVSeries from "./pages/TVSeries";
+import "./firebase";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Layout from "./components/Layout";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: "/tv/bla",
+        path: "/tv/:id",
         element: <TVSeriesDetail />,
       },
       {
@@ -33,7 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/tvseries",
-        element: <TvSeries />,
+        element: <TVSeries />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },

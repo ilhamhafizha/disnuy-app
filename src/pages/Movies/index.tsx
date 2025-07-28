@@ -36,7 +36,7 @@ const Movies = () => {
         language={firstContent.original_language}
       />
       <BannerMask>
-        <ScrollableSection title="Popular on Disney+">
+        <ScrollableSection title="Movie Popular on Disney+">
           {!loading &&
             data &&
             data.results.map((content: any) => (

@@ -10,23 +10,24 @@ interface Props {
   duration: string;
 }
 
-const EpidodeItem = (props: Props) => {
+const EpisodeItem = (props: Props) => {
   const { imageUrl, title, season, episode, date, desc, duration } = props;
+
   return (
     <div className={styles.container}>
       <div className={styles.imageWrapper}>
-        <img src={imageUrl} alt="" />
+        <img height="100%" src={imageUrl} alt="episode" />
       </div>
-      <div className={styles.detailWrapper}>
+      <div className={styles.detailsWrapper}>
         <h3>{title}</h3>
         <p className={styles.episodeSummary}>
           <span>
-            S {season} E{episode}
+            S{season} E{episode}
           </span>
           <b>&#x2022;</b>
           <span>{date}</span>
           <b>&#x2022;</b>
-          <span>{duration} min</span>
+          <span>{duration}</span>
         </p>
         <p className={styles.desc}>{desc}</p>
       </div>
@@ -34,4 +35,4 @@ const EpidodeItem = (props: Props) => {
   );
 };
 
-export default EpidodeItem;
+export default EpisodeItem;
