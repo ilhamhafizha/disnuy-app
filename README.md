@@ -16,8 +16,6 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 - **API**: [TMDB API](https://www.themoviedb.org/)
 - **Hosting**: Firebase Hosting
 - **Routing**: React Router DOM
-- **State Management**: React Context API
-
 ---
 
 ## 🔑 Features
@@ -27,8 +25,6 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 - 🏠 Protected Routes for authenticated users
 - 🖼️ Home page layout inspired by Disney+
 - ⚡ Firebase Hosting for deployment
-- 📱 Responsive UI with Tailwind CSS
-
 ---
 
 ## 🌐 API: The Movie Database (TMDB)
