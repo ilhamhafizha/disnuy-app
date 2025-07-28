@@ -1,69 +1,88 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🎬 Disney+ Clone
 
-## Expanding the ESLint configuration
+A clone of the Disney+ streaming platform built using **React + TypeScript**, consuming **TMDB API** for movie data, with authentication and hosting powered by **Firebase**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Demo
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🌐 Live: [https://disney-plus-clone-24a40.web.app](https://disney-plus-clone-24a40.web.app)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+📦 Repository: [https://github.com/ilhamhafizha/disnuy-app](https://github.com/ilhamhafizha/disnuy-app)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Authentication**: Firebase Auth 
+- **API**: [TMDB API](https://www.themoviedb.org/)
+- **Hosting**: Firebase Hosting
+- **Routing**: React Router DOM
+- **State Management**: React Context API
+
+---
+
+## 🔑 Features
+
+- 🔐 Firebase Authentication (Google Sign-In)
+- 🎥 Fetch trending & featured movies from TMDB
+- 🏠 Protected Routes for authenticated users
+- 🖼️ Home page layout inspired by Disney+
+- ⚡ Firebase Hosting for deployment
+- 📱 Responsive UI with Tailwind CSS
+
+---
+
+## 🌐 API: The Movie Database (TMDB)
+
+This project fetches movie and TV show data using the [TMDB API](https://www.themoviedb.org/documentation/api).
+
+---
+
+## 🚧 Installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/ilhamhafizha/disnuy-app.git
+cd disnuy-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔥 Firebase Setup
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Create a Firebase project at [https://console.firebase.google.com](https://console.firebase.google.com)
+2. Enable **Authentication > Sign-in method > Google**
+3. Add your Firebase config to `src/firebase/firebaseConfig.ts`
+
+```ts
+export const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID",
+  // ...
+};
 ```
+
+---
+
+## 🚀 Deployment
+
+```bash
+# Build your app
+npm run build
+
+# Deploy to Firebase Hosting
+firebase deploy
+```
+
+
