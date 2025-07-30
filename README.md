@@ -20,7 +20,7 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 
 ## 🔑 Features
 
-- 🔐 Firebase Authentication (Google Sign-In)
+- 🔐 Firebase Authentication
 - 🎥 Fetch trending & featured movies from TMDB
 - 🏠 Protected Routes for authenticated users
 - 🖼️ Home page layout inspired by Disney+
