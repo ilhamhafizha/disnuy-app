@@ -7,7 +7,8 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 
 ## 🚀 Demo
 
-🌐 Live: [https://disney-plus-clone-24a40.web.app](https://disney-plus-clone-24a40.web.app)
+🌐 Live: 
+[https://disney-plus-clone-24a40.web.app](https://disney-plus-clone-24a40.web.app)
 
 ## 🛠️ Tech Stack
 
@@ -25,11 +26,6 @@ A clone of the Disney+ streaming platform built using **React + TypeScript**, co
 - 🏠 Protected Routes for authenticated users
 - 🖼️ Home page layout inspired by Disney+
 - ⚡ Firebase Hosting for deployment
----
-
-## 🌐 API: The Movie Database (TMDB)
-
-This project fetches movie and TV show data using the [TMDB API](https://www.themoviedb.org/documentation/api).
 
 ---
 
